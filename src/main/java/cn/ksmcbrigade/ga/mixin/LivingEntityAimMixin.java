@@ -23,7 +23,7 @@ public class LivingEntityAimMixin {
     private LivingEntity shooter;
     @Redirect(method = "tickSprint",at = @At(value = "FIELD", target = "Lcom/tacz/guns/entity/shooter/ShooterDataHolder;isAiming:Z", opcode = Opcodes.GETFIELD))
     public boolean tickSprint(ShooterDataHolder instance) {
-        if (GunAura.CONFIG.isLoaded() && GunAura.ENABLED.get() && GunAura.SPRINTING_SHOOT.get())
+        if (GunAura.ENABLED.get() && GunAura.SPRINTING_SHOOT.get())
             return false;
         else
             return data.isAiming;
@@ -31,7 +31,7 @@ public class LivingEntityAimMixin {
 
     @Redirect(method = "tickSprint",at = @At(value = "INVOKE", target = "Lcom/tacz/guns/api/entity/ReloadState$StateType;isReloading()Z", opcode = Opcodes.GETFIELD))
     public boolean tickSprint2(ReloadState.StateType instance) {
-        if (GunAura.CONFIG.isLoaded() && GunAura.ENABLED.get() && GunAura.SPRINTING_SHOOT.get())
+        if (GunAura.ENABLED.get() && GunAura.SPRINTING_SHOOT.get())
             return false;
         else {
             IGunOperator operator = IGunOperator.fromLivingEntity(this.shooter);

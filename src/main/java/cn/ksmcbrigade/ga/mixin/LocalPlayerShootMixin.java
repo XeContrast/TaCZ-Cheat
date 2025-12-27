@@ -15,19 +15,19 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class LocalPlayerShootMixin {
     @Inject(method = {"getClientShootCoolDown", "getCoolDown", "lambda$getClientShootCoolDown$3"}, at = @At("RETURN"), cancellable = true)
     public void get(CallbackInfoReturnable<Long> cir) {
-        if (GunAura.CONFIG.isLoaded() && GunAura.ENABLED.get() && GunAura.NO_COOL_DOWN.get()) cir.setReturnValue(0L);
+        if (GunAura.ENABLED.get() && GunAura.NO_COOL_DOWN.get()) cir.setReturnValue(0L);
     }
 
     @Redirect(method = {"doShoot", "shoot"}, at = @At(value = "INVOKE", target = "Lcom/tacz/guns/api/item/IGun;getCurrentAmmoCount(Lnet/minecraft/world/item/ItemStack;)I"))
     public int shoot(IGun instance, ItemStack stack) {
         int ret = instance.getCurrentAmmoCount(stack);
-        if (GunAura.CONFIG.isLoaded() && GunAura.ENABLED.get() && GunAura.AMMO_FREE.get()) ret = Math.max(1, ret);
+        if (GunAura.ENABLED.get() && GunAura.AMMO_FREE.get()) ret = Math.max(1, ret);
         return ret;
     }
 
     @Redirect(method = "shoot", at = @At(value = "INVOKE", target = "Lcom/tacz/guns/api/entity/IGunOperator;getSynSprintTime()F"))
     public float aFloat(IGunOperator instance) {
-        if (GunAura.CONFIG.isLoaded() && GunAura.ENABLED.get() && GunAura.NO_ADS_DELAY.get())
+        if (GunAura.ENABLED.get() && GunAura.NO_ADS_DELAY.get())
             return 0;
         else
             return instance.getSynSprintTime();

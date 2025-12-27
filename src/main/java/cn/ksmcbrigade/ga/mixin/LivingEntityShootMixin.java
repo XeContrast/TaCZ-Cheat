@@ -25,21 +25,21 @@ public class LivingEntityShootMixin {
     @Inject(method = "getShootCoolDown*", at = @At("RETURN"), cancellable = true)
     public void get(CallbackInfoReturnable<Long> cir) {
         if (!IGun.mainHandHoldGun(this.shooter)) return;
-        if (GunAura.CONFIG.isLoaded() && GunAura.NO_COOL_DOWN.get() && GetClientConfigs.getEnabled(this.shooter))
+        if (GunAura.NO_COOL_DOWN.get() && GetClientConfigs.getEnabled(this.shooter))
             cir.setReturnValue(0L);
     }
 
     @Redirect(method = "shoot", at = @At(value = "INVOKE", target = "Lcom/tacz/guns/api/item/IGun;getCurrentAmmoCount(Lnet/minecraft/world/item/ItemStack;)I"))
     public int shoot(IGun instance, ItemStack stack) {
         int ret = instance.getCurrentAmmoCount(stack);
-        if (IGun.mainHandHoldGun(this.shooter) && GunAura.CONFIG.isLoaded() && GunAura.AMMO_FREE.get() && GetClientConfigs.getEnabled(this.shooter))
+        if (IGun.mainHandHoldGun(this.shooter) && GunAura.AMMO_FREE.get() && GetClientConfigs.getEnabled(this.shooter))
             ret = Math.max(1, ret);
         return ret;
     }
 
     @Redirect(method = "shoot",at = @At(value = "FIELD", target = "Lcom/tacz/guns/entity/shooter/ShooterDataHolder;sprintTimeS:F",opcode = Opcodes.GETFIELD))
     public float shoot(ShooterDataHolder instance) {
-        if (GunAura.CONFIG.isLoaded() && GunAura.ENABLED.get() && GunAura.NO_ADS_DELAY.get())
+        if (GunAura.ENABLED.get() && GunAura.NO_ADS_DELAY.get())
             return 0;
         else
             return instance.sprintTimeS;

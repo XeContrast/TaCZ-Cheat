@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class CameraSetupEventMixin {
     @Inject(method = "applyCameraRecoil",at = @At("HEAD"), cancellable = true)
     private static void noRecoil(ViewportEvent.ComputeCameraAngles event, CallbackInfo ci) {
-        if (GunAura.CONFIG.isLoaded() && GunAura.ENABLED.get() && GunAura.NO_RECOIL.get()) {
+        if (GunAura.ENABLED.get() && GunAura.NO_RECOIL.get()) {
             ci.cancel();
         }
     }

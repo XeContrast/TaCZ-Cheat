@@ -13,11 +13,11 @@ public class GetClientConfigs {
     public static boolean waiting = false;
     public static boolean enabled = false;
 
-    public static boolean getEnabled(LivingEntity entity){
-        if(!(entity instanceof ServerPlayer player)) return false;
+    public static boolean getEnabled(LivingEntity entity) {
+        if (!(entity instanceof ServerPlayer player)) return false;
         waiting = true;
-        GunAura.channel.sendTo(new GunAura.Message("enabled",false),player.connection.connection, NetworkDirection.PLAY_TO_CLIENT);
-        while (waiting){
+        GunAura.channel.sendTo(new GunAura.Message("enabled", false), player.connection.connection, NetworkDirection.PLAY_TO_CLIENT);
+        while (waiting) {
             try {
                 Thread.yield();
             } catch (Exception | Error e) {

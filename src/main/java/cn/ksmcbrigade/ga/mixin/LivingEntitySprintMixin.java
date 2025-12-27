@@ -12,7 +12,7 @@ public class LivingEntitySprintMixin {
 
     @Inject(method = "getProcessedSprintStatus",at = @At("HEAD"), cancellable = true)
     public void getProcessedSprintStatus(boolean sprint, CallbackInfoReturnable<Boolean> cir) {
-        if (GunAura.CONFIG.isLoaded() && GunAura.ENABLED.get() && GunAura.NO_ADS_DELAY.get()) {
+        if (GunAura.ENABLED.get() && GunAura.SPRINTING_SHOOT.get()) {
             cir.setReturnValue(sprint);
             cir.cancel();
         }

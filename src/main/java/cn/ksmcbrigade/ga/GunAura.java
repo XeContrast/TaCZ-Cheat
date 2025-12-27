@@ -15,28 +15,28 @@ import net.minecraftforge.network.simple.SimpleChannel;
 
 @Mod(GunAura.MODID)
 public class GunAura {
-
+    public static ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder().comment("GunAura Comm Config");
     public static final String MODID = "ga";
 
-    private static final ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder().comment("GunAura Both Config");
+//    private static final ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder().comment("GunAura Both Config");
     private static final ForgeConfigSpec.Builder clientBuilder = new ForgeConfigSpec.Builder().comment("GunAura Client Config");
 
     //main
 
     public static final ForgeConfigSpec.IntValue RANGE = clientBuilder.comment("The range of the GunAura module,when the GunAura module enabled,it will get the nearest entity to attack in this range.").comment("范围").defineInRange("range",10,0,1000);
-
+    public static final ForgeConfigSpec.BooleanValue AUTO_MODE = clientBuilder.comment("The forced auto module of the GunAura module,the gun's fire mode will forced to the auto mode when this module enabled.").comment("强制自动模式(无论枪械类型,即使是RPG也可以)").define("autoMode",false);
     public static final ForgeConfigSpec.BooleanValue ENABLED = clientBuilder.comment("The enable of the GunAura module.").define("enabled",false);
 
     //ex
 
     public static final ForgeConfigSpec.BooleanValue AURA = builder.comment("The no Recoil").comment("杀戮光环").define("KillAura",false);
     public static final ForgeConfigSpec.BooleanValue AMMO_FREE = builder.comment("This module need both install this mod.").comment("The ammo free module of the GunAura module,the gun's the counts of ammo will at least 1 when this module enabled.").comment("无限火力").define("ammoFree",false);
-    public static final ForgeConfigSpec.BooleanValue AUTO_MODE = clientBuilder.comment("The forced auto module of the GunAura module,the gun's fire mode will forced to the auto mode when this module enabled.").comment("强制自动模式(无论枪械类型,即使是RPG也可以)").define("autoMode",false);
     public static final ForgeConfigSpec.BooleanValue NO_COOL_DOWN = builder.comment("This module need both install this mod.").comment("The no cool down module of the GunAura module,the gun's fire cool download will be to 0 when this module enabled.").comment("无攻击冷却").define("noCooldown",false);
     public static final ForgeConfigSpec.BooleanValue NO_RECOIL = builder.comment("The no Recoil").comment("无后坐力").define("NoRecoil",false);
     public static final ForgeConfigSpec.BooleanValue NO_SCATTERING = builder.comment("The no scattering").comment("无散射").define("NoScattering",false);
     public static final ForgeConfigSpec.BooleanValue NO_ADS_DELAY = builder.comment("United We Stand").comment("无跑射延迟").define("NoADSDelay",false);
     public static final ForgeConfigSpec.BooleanValue SPRINTING_SHOOT = builder.comment("United We Stand").comment("跑步时射击").define("SprintingShoot",false);
+
 
     public static final ForgeConfigSpec CONFIG = builder.build();
     public static final ForgeConfigSpec CLIENT_CONFIG = clientBuilder.build();
@@ -44,10 +44,10 @@ public class GunAura {
     public static final SimpleChannel channel = NetworkRegistry.newSimpleChannel(new ResourceLocation(MODID,"sync"),()->"1.0.0",(a)->true,(b)->true);
 
     public GunAura() {
-        MinecraftForge.EVENT_BUS.register(this);
-
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON,CONFIG);
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT,CLIENT_CONFIG);
+
+        MinecraftForge.EVENT_BUS.register(this);
 
         channel.registerMessage(0,Message.class,Message::encode,Message::decode,(msg,context)->{
             if(msg.client.isEmpty()){

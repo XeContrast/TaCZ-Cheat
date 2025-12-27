@@ -21,7 +21,7 @@ public class LivingEntityMeleeMixin {
     @Inject(method = {"getMeleeCoolDown", "getTotalCooldownTime"}, at = @At("RETURN"), cancellable = true)
     public void get(CallbackInfoReturnable<Long> cir) {
         if (!IGun.mainHandHoldGun(this.shooter)) return;
-        if (GunAura.CONFIG.isLoaded() && GunAura.NO_COOL_DOWN.get() && GetClientConfigs.getEnabled(this.shooter))
+        if (GunAura.NO_COOL_DOWN.get() && GetClientConfigs.getEnabled(this.shooter))
             cir.setReturnValue(0L);
     }
 }

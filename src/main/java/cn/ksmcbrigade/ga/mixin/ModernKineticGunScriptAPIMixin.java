@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Redirect;
 public abstract class ModernKineticGunScriptAPIMixin {
     @Redirect(method = "shootOnce",at = @At(value = "INVOKE", target = "Ljava/lang/Math;max(FF)F"))
     public float inj(float a, float b) {
-        if (GunAura.CONFIG.isLoaded() && GunAura.ENABLED.get() && GunAura.NO_SCATTERING.get())
+        if (GunAura.ENABLED.get() && GunAura.NO_SCATTERING.get())
             return 0;
         else
             return Math.max(a,b);
