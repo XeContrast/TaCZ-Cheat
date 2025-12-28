@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gunAura.main.iml" filepath="$PROJECT_DIR$/.idea/modules/gunAura.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gunAura.test.iml" filepath="$PROJECT_DIR$/.idea/modules/gunAura.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TaCZ_Cheat.main.iml" filepath="$PROJECT_DIR$/.idea/modules/TaCZ_Cheat.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TaCZ_Cheat.test.iml" filepath="$PROJECT_DIR$/.idea/modules/TaCZ_Cheat.test.iml" />
     </modules>
   </component>
 </project>
