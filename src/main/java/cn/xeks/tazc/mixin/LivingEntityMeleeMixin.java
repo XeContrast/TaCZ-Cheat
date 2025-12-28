@@ -1,7 +1,7 @@
-package cn.ksmcbrigade.ga.mixin;
+package cn.xeks.tazc.mixin;
 
-import cn.ksmcbrigade.ga.GunAura;
-import cn.ksmcbrigade.ga.network.GetClientConfigs;
+import cn.xeks.tazc.GunAura;
+import cn.xeks.tazc.network.GetClientConfigs;
 import com.tacz.guns.api.item.IGun;
 import com.tacz.guns.entity.shooter.LivingEntityMelee;
 import net.minecraft.world.entity.LivingEntity;

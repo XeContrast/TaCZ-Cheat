@@ -1,7 +1,7 @@
-package cn.ksmcbrigade.ga.mixin;
+package cn.xeks.tazc.mixin;
 
-import cn.ksmcbrigade.ga.event.EnumPacketType;
-import cn.ksmcbrigade.ga.event.PacketEvent;
+import cn.xeks.tazc.event.EnumPacketType;
+import cn.xeks.tazc.event.PacketEvent;
 import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.network.Connection;
 import net.minecraft.network.protocol.Packet;

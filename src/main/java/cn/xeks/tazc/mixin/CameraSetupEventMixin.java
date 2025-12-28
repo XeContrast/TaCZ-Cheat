@@ -1,7 +1,7 @@
-package cn.ksmcbrigade.ga.mixin;
+package cn.xeks.tazc.mixin;
 
 
-import cn.ksmcbrigade.ga.GunAura;
+import cn.xeks.tazc.GunAura;
 import com.tacz.guns.client.event.CameraSetupEvent;
 import net.minecraftforge.client.event.ViewportEvent;
 import org.spongepowered.asm.mixin.Mixin;

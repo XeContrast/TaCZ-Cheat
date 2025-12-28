@@ -1,6 +1,6 @@
-package cn.ksmcbrigade.ga.mixin;
+package cn.xeks.tazc.mixin;
 
-import cn.ksmcbrigade.ga.GunAura;
+import cn.xeks.tazc.GunAura;
 import com.tacz.guns.api.entity.IGunOperator;
 import com.tacz.guns.api.entity.ReloadState;
 import com.tacz.guns.entity.shooter.LivingEntityAim;

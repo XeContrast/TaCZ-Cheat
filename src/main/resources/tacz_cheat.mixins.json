@@ -1,9 +1,9 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "cn.ksmcbrigade.ga.mixin",
+  "package": "cn.xeks.tazc.mixin",
   "compatibilityLevel": "JAVA_17",
-  "refmap": "ga.refmap.json",
+  "refmap": "tacz_cheat.refmap.json",
   "mixins": [
     "CameraSetupEventMixin",
     "ConnectionMixin",

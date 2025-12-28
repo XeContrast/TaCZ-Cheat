@@ -1,7 +1,7 @@
-package cn.ksmcbrigade.ga.client;
+package cn.xeks.tazc.client;
 
-import cn.ksmcbrigade.ga.GunAura;
-import cn.ksmcbrigade.ga.event.PacketEvent;
+import cn.xeks.tazc.GunAura;
+import cn.xeks.tazc.event.PacketEvent;
 import com.mojang.blaze3d.platform.InputConstants;
 import com.tacz.guns.api.item.IGun;
 import com.tacz.guns.network.NetworkHandler;
@@ -106,14 +106,7 @@ public class GAClient implements MinecraftIns {
         if (livingEntity.isDeadOrDying())
             return false;
 
-        // 跳过玩家自己
-        if (entity == mc.player)
-            return false;
-
-        // 如果需要，可以添加更多过滤条件
-        // 例如：跳过队友、跳过特定类型的生物等
-
-        return true;
+        return entity != mc.player;
     }
 
     public static float wrapAngleTo180_float(float value)
@@ -155,28 +148,5 @@ public class GAClient implements MinecraftIns {
         mc.player.yHeadRot = yaw1;
         connection.send(new ServerboundMovePlayerPacket.Rot(yaw1, pitch1, on));
     }
-
-//        public static void faceEntity(Entity player, Entity targetEntity, Connection connection,boolean on) {
-//
-//            AABB playerBox = player.getBoundingBox();
-//            AABB targetBox = targetEntity.getBoundingBox();
-//
-//            double playerX = player.getX() + playerBox.minX + playerBox.maxX;
-//            double playerY = player.getY() + playerBox.minY + playerBox.maxY;
-//            double playerZ = player.getZ() + playerBox.minZ + playerBox.maxZ;
-//
-//            double targetX = targetEntity.getX() + targetBox.minX + targetBox.maxX;
-//            double targetY = targetEntity.getY() + targetBox.minY + targetBox.maxY;
-//            double targetZ = targetEntity.getZ() + targetBox.minZ + targetBox.maxZ;
-//
-//            double dX = targetX - playerX;
-//            double dY = targetY - playerY;
-//            double dZ = targetZ - playerZ;
-//            double distanceXZ = Math.sqrt(dX * dX + dZ * dZ);
-//            float yaw = (float) Math.toDegrees(Math.atan2(dZ, dX)) - 90.0F;
-//            float pitch = (float) -Math.toDegrees(Math.atan2(dY, distanceXZ));
-//
-//            connection.send(new ServerboundMovePlayerPacket.Rot(yaw, pitch, on));
-//        }
 
 }

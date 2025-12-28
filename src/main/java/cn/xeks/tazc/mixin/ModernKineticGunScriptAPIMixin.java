@@ -1,6 +1,6 @@
-package cn.ksmcbrigade.ga.mixin;
+package cn.xeks.tazc.mixin;
 
-import cn.ksmcbrigade.ga.GunAura;
+import cn.xeks.tazc.GunAura;
 import com.tacz.guns.item.ModernKineticGunScriptAPI;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

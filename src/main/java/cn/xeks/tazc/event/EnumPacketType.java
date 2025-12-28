@@ -1,4 +1,4 @@
-package cn.ksmcbrigade.ga.event;
+package cn.xeks.tazc.event;
 
 public enum EnumPacketType {
     SEND,RECEIVE

@@ -1,21 +1,20 @@
-package cn.ksmcbrigade.ga.mixin;
+package cn.xeks.tazc.mixin;
 
-import cn.ksmcbrigade.ga.GunAura;
-import com.tacz.guns.entity.shooter.LivingEntitySprint;
+import cn.xeks.tazc.GunAura;
+import com.tacz.guns.client.gameplay.LocalPlayerSprint;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(value = LivingEntitySprint.class,remap = false)
-public class LivingEntitySprintMixin {
+@Mixin(value = LocalPlayerSprint.class,remap = false)
+public class LocalPlayerSprintMixin {
 
     @Inject(method = "getProcessedSprintStatus",at = @At("HEAD"), cancellable = true)
-    public void getProcessedSprintStatus(boolean sprint, CallbackInfoReturnable<Boolean> cir) {
+    public void getProcessedSprintStatus(boolean sprinting, CallbackInfoReturnable<Boolean> cir) {
         if (GunAura.ENABLED.get() && GunAura.SPRINTING_SHOOT.get()) {
-            cir.setReturnValue(sprint);
+            cir.setReturnValue(sprinting);
             cir.cancel();
         }
     }
-
 }

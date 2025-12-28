@@ -1,6 +1,6 @@
-package cn.ksmcbrigade.ga.mixin;
+package cn.xeks.tazc.mixin;
 
-import cn.ksmcbrigade.ga.client.GAClient;
+import cn.xeks.tazc.client.GAClient;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;

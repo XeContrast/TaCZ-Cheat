@@ -1,6 +1,6 @@
-package cn.ksmcbrigade.ga;
+package cn.xeks.tazc;
 
-import cn.ksmcbrigade.ga.network.GetClientConfigs;
+import cn.xeks.tazc.network.GetClientConfigs;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -16,7 +16,7 @@ import net.minecraftforge.network.simple.SimpleChannel;
 @Mod(GunAura.MODID)
 public class GunAura {
     public static ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder().comment("GunAura Comm Config");
-    public static final String MODID = "ga";
+    public static final String MODID = "tacz_cheat";
 
 //    private static final ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder().comment("GunAura Both Config");
     private static final ForgeConfigSpec.Builder clientBuilder = new ForgeConfigSpec.Builder().comment("GunAura Client Config");

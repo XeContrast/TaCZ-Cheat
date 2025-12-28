@@ -1,6 +1,6 @@
-package cn.ksmcbrigade.ga.mixin;
+package cn.xeks.tazc.mixin;
 
-import cn.ksmcbrigade.ga.GunAura;
+import cn.xeks.tazc.GunAura;
 import com.tacz.guns.api.item.gun.FireMode;
 import com.tacz.guns.api.item.nbt.GunItemDataAccessor;
 import net.minecraft.nbt.CompoundTag;

@@ -1,4 +1,4 @@
-package cn.ksmcbrigade.ga.client;
+package cn.xeks.tazc.client;
 
 import net.minecraft.client.Minecraft;
 

@@ -1,6 +1,6 @@
-package cn.ksmcbrigade.ga.network;
+package cn.xeks.tazc.network;
 
-import cn.ksmcbrigade.ga.GunAura;
+import cn.xeks.tazc.GunAura;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
