@@ -29,6 +29,13 @@ public class LivingEntityShootMixin {
             cir.setReturnValue(0L);
     }
 
+    @Inject(method = "getShootCoolDown(J)J",at = @At("RETURN"),cancellable = true,remap = false)
+    public void cooldown(long timestamp, CallbackInfoReturnable<Long> cir){
+        if (!IGun.mainHandHoldGun(this.shooter)) return;
+        if (GunAura.ENABLED.get())
+            cir.setReturnValue((long) (((double)cir.getReturnValue()) / GunAura.SHOOTTIME.get()));
+    }
+
     @Redirect(method = "shoot", at = @At(value = "INVOKE", target = "Lcom/tacz/guns/api/item/IGun;getCurrentAmmoCount(Lnet/minecraft/world/item/ItemStack;)I"))
     public int shoot(IGun instance, ItemStack stack) {
         int ret = instance.getCurrentAmmoCount(stack);

@@ -36,6 +36,9 @@ public class GunAura {
     public static final ForgeConfigSpec.BooleanValue NO_SCATTERING = builder.comment("The no scattering").comment("无散射").define("NoScattering",false);
     public static final ForgeConfigSpec.BooleanValue NO_ADS_DELAY = builder.comment("United We Stand").comment("无跑射延迟").define("NoADSDelay",false);
     public static final ForgeConfigSpec.BooleanValue SPRINTING_SHOOT = builder.comment("United We Stand").comment("跑步时射击").define("SprintingShoot",false);
+    public static final ForgeConfigSpec.DoubleValue RELOAD_TIME = builder.comment("增快换弹速度").comment("但不增加换弹动画的速度").defineInRange("ReloadTimer",1.0,0.1,1000.0);
+    public static final ForgeConfigSpec.DoubleValue SHOOTTIME = builder.comment("增快射速").defineInRange("ShootTimer",1.0,0.1,1000.0);
+    public static final ForgeConfigSpec.DoubleValue AIMTIMER = builder.comment("增快开镜速度").defineInRange("AimTimer",1.0,0.1,1000.0);
 
 
     public static final ForgeConfigSpec CONFIG = builder.build();
