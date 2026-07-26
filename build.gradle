@@ -177,9 +177,11 @@ dependencies {
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    implementation fg.deobf("curse.maven:timeless-and-classics-zero-1028108:7278003")
+    implementation fg.deobf("curse.maven:timeless-and-classics-zero-1028108:8141310")
 
     implementation fg.deobf("curse.maven:configured-457570:5180900")
+
+    implementation fg.deobf("curse.maven:config-menus-forge-544048:4670616")
 
     //implementation fg.deobf(files('lib/crr-1.0.jar'))
 }
